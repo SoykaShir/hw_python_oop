@@ -106,7 +106,7 @@ class Swimming(Training):
 
     def get_spent_calories(self) -> float:
         return ((self.get_mean_speed()
-                + self.CALORIES_MEAN_SPEED_SHIFT)
+                 + self.CALORIES_MEAN_SPEED_SHIFT)
                 * self.CALORIES_WEIGHT_MULTIPLIER * self.weight
                 * self.duration)
 
@@ -114,8 +114,8 @@ class Swimming(Training):
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     training_type: dict[str, type[Training]] = {'RUN': Running,
-                                          'WLK': SportsWalking,
-                                          'SWM': Swimming}
+                                                'WLK': SportsWalking,
+                                                'SWM': Swimming}
     return training_type[workout_type](*data)
 
 
