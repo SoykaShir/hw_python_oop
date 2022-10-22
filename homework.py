@@ -108,7 +108,10 @@ class Swimming(Training):
                 * self.duration)
 
 
-def read_package(workout_type: str, data: List[int]) -> Training:
+# def read_package(workout_type: str, data: list[int]) -> Training:
+# не проходит тесты
+# import typing.List тоже не проходит
+def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     training_type: dict[str, type[Training]] = {'RUN': Running,
                                                 'WLK': SportsWalking,
