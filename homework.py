@@ -12,7 +12,6 @@ class InfoMessage:
     calories: float
 
     def get_message(self) -> str:
-
         return (f'Тип тренировки: {self.training_type}; Длительность: '
                 f'{self.duration:.3f} ч.; Дистанция: {self.distance:.3f} км; '
                 f'Ср. скорость: {self.speed:.3f} км/ч; Потрачено ккал:'
@@ -21,9 +20,9 @@ class InfoMessage:
 
 class Training:
     """Базовый класс тренировки."""
-    LEN_STEP = 0.65
+    LEN_STEP: float = 0.65
     M_IN_KM: int = 1000
-    MIN_IN_H = 60
+    MIN_IN_H: int = 60
 
     def __init__(self,
                  action: int,
@@ -109,7 +108,7 @@ class Swimming(Training):
                 * self.duration)
 
 
-def read_package(workout_type: str, data: list[int]) -> Training:
+def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     training_type: dict[str, type[Training]] = {'RUN': Running,
                                                 'WLK': SportsWalking,
